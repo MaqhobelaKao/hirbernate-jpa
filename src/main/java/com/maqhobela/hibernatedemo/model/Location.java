@@ -8,13 +8,12 @@ import jakarta.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "location")
 public class Location {
     @Id
     private Integer id;
     String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "location")
     private List<User> users;
 
     public Location() {

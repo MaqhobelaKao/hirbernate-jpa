@@ -19,7 +19,7 @@ public class User {
     @ManyToOne
     private Location location;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
     public User() {
