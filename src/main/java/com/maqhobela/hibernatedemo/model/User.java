@@ -1,12 +1,18 @@
 package com.maqhobela.hibernatedemo.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
+/**
+ * This annnotation is used instate of both @JsonManagedReference and @JsonBackReference
+ */
+
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class User {
     @Id
     private Integer id;
@@ -74,7 +80,12 @@ public class User {
         this.email = email;
     }
 
-    @JsonBackReference
+    /**
+     * This annotations are used interchangably
+     * @return
+     */
+    @JsonIgnore
+    //@JsonBackReference
     public Location getLocation() {
         return location;
     }

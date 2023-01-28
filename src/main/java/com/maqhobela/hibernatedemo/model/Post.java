@@ -1,6 +1,9 @@
 package com.maqhobela.hibernatedemo.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -9,6 +12,13 @@ import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity
+/**
+ * This annnotation is used instate of both @JsonManagedReference and @JsonBackReference
+ */
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
+
 public class Post {
     @Id
     private Integer id;
@@ -52,8 +62,12 @@ public class Post {
     public void setDetails(String details) {
         this.details = details;
     }
-
-    @JsonBackReference
+    /**
+     * This annotations are used interchangably
+     * @return
+     */
+    //@JsonIgnore
+    // @JsonBackReference
     public User getUser() {
         return user;
     }

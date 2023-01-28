@@ -1,15 +1,26 @@
 package com.maqhobela.hibernatedemo.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 import java.util.List;
 
 @Entity
+/**
+ * This annnotation is used instate of both @JsonManagedReference and @JsonBackReference
+ */
+
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
+
 public class Location {
     @Id
     private Integer id;
@@ -27,7 +38,7 @@ public class Location {
     }
 
 
-    @JsonManagedReference
+    //@JsonManagedReference
     public List<User> getUsers() {
         return users;
     }
