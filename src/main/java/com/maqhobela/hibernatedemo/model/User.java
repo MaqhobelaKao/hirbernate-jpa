@@ -1,5 +1,7 @@
 package com.maqhobela.hibernatedemo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -31,6 +33,7 @@ public class User {
         this.location = location;
     }
 
+    @JsonManagedReference
     public List<Post> getPosts() {
         return posts;
     }
@@ -71,6 +74,7 @@ public class User {
         this.email = email;
     }
 
+    @JsonBackReference
     public Location getLocation() {
         return location;
     }

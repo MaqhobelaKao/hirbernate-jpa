@@ -1,9 +1,11 @@
 package com.maqhobela.hibernatedemo.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -24,6 +26,8 @@ public class Location {
         this.name = name;
     }
 
+
+    @JsonManagedReference
     public List<User> getUsers() {
         return users;
     }
