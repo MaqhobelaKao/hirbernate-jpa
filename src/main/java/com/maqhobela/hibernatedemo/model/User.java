@@ -1,9 +1,6 @@
 package com.maqhobela.hibernatedemo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -17,6 +14,7 @@ public class User {
     private String email;
 
     @ManyToOne
+    @JoinColumn(name = "location_id")
     private Location location;
 
     @OneToMany(mappedBy = "user")
