@@ -2,8 +2,10 @@ package com.maqhobela.hibernatedemo.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "location")
 public class Location {
     @Id
     private Integer id;
