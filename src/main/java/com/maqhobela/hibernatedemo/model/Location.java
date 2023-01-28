@@ -2,7 +2,10 @@ package com.maqhobela.hibernatedemo.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+import java.util.List;
 
 @Entity
 @Table(name = "location")
@@ -10,6 +13,9 @@ public class Location {
     @Id
     private Integer id;
     String name;
+
+    @OneToMany
+    private List<User> users;
 
     public Location() {
     }

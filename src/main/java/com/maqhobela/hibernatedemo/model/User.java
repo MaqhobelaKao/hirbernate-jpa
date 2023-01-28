@@ -3,6 +3,9 @@ package com.maqhobela.hibernatedemo.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class User {
@@ -15,6 +18,9 @@ public class User {
 
     @ManyToOne
     private Location location;
+
+    @OneToMany
+    private List<Post> posts;
 
     public User() {
     }
