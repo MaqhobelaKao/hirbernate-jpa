@@ -31,6 +31,14 @@ public class User {
         this.location = location;
     }
 
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -24,6 +24,14 @@ public class Location {
         this.name = name;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     public Integer getId() {
         return id;
     }
